@@ -26,3 +26,25 @@ bool Set::isAntiReflective() {
     }
     return true;
 }
+
+bool Set::isSymmetrical() {
+    for (int value1 : this->values) {
+        for (int value2 : this->values) {
+            if (relation(value1, value2) != relation(value2, value1)) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool Set::isAntiSymmetrical() {
+    for (int value1 : this->values) {
+        for (int value2 : this->values) {
+            if (relation(value1, value2) == relation(value2, value1)) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
