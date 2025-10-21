@@ -1,1 +1,28 @@
 #include "Set.h"
+
+Set::Set(){
+
+}
+
+// Relation is 2x - 7y = 1
+bool Set::relation(int x, int y) {
+    return (2 * x - 7 * y) == 1; 
+}
+
+bool Set::isReflective() {
+    for (int value : this->values) {
+        if (!relation(value, value)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool Set::isAntiReflective() {
+    for (int value : this->values) {
+        if (relation(value, value)) {
+            return false;
+        }
+    }
+    return true;
+}
